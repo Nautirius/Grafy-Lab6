@@ -7,7 +7,7 @@ from typing import Dict, Tuple
 
 def generate_random_digraph(n: int, edge_prob: float = 0.3) -> nx.DiGraph:
     """
-    Generuje losowy digraf z co najmniej jedną wychodzącą krawędzią z każdego wierzchołka.
+    Generuje losowy digraf z co najmniej jedną wychodzącą krawędzią z każdego wierzchołka
     """
     if n < 2:
         raise ValueError("Graf musi mieć co najmniej 2 wierzchołki")
@@ -25,9 +25,9 @@ def generate_random_digraph(n: int, edge_prob: float = 0.3) -> nx.DiGraph:
     return G
 
 
-def pagerank_random_walk(graph: nx.DiGraph, d: float = 0.15, steps: int = 1000000) -> Dict[int, float]:
+def pagerank_random_walk(graph: nx.DiGraph, d: float = 0.15, steps: int = 1_000_000) -> Dict[int, float]:
     """
-    Implementacja PageRank metodą błądzenia przypadkowego z teleportacją
+    PageRank metodą błądzenia przypadkowego z teleportacją
     """
     visit_count = {node: 0 for node in graph.nodes}
     current = random.choice(list(graph.nodes))  # początek z losowego wierzchołka
@@ -47,7 +47,7 @@ def pagerank_random_walk(graph: nx.DiGraph, d: float = 0.15, steps: int = 100000
 
 def pagerank_power_iteration(graph: nx.DiGraph, d: float = 0.15, max_iter: int = 100, tol: float = 1e-6) -> Tuple[Dict[int, float], int]:
     """
-    Implementacja PageRank metodą metodą potęgową
+    PageRank metodą potęgową
     """
     n = graph.number_of_nodes()
     A = nx.to_numpy_array(graph, dtype=float)  # macierz sąsiedztwa grafu
@@ -87,7 +87,7 @@ def print_pagerank_results(results: Dict[int, float], header: str) -> None:
 
 def draw_graph(graph: nx.DiGraph) -> None:
     """
-    Rysuje digraf funkcją nx.draw_networkx
+    Rysuje digraf
     """
     plt.figure(figsize=(8, 6))
     pos = nx.spring_layout(graph)
