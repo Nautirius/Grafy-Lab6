@@ -100,6 +100,10 @@ if __name__ == "__main__":
     try:
         points = read_points("data/tsp_data.txt")
 
+        initial_cycle = list(range(len(points)))
+        initial_length = total_distance(initial_cycle, points)
+        draw_cycle(points, initial_cycle, f"Początkowy cykl. Długość: {initial_length:.3f}")
+
         best_overall_cycle = []
         best_overall_length = float('inf')
 

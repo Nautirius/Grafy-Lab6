@@ -104,7 +104,7 @@ if __name__ == "__main__":
         steps = 1_000_000
 
         # generowanie grafu
-        graph = generate_random_digraph(n)
+        graph = generate_random_digraph(n, edge_prob=0.3)
         draw_graph(graph)
 
         # Algorytm (a) - Random walk z teleportacją
