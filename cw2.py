@@ -83,7 +83,9 @@ def simulated_annealing(points: List[Tuple[float, float]], max_iter: int = 1000)
             new_length = total_distance(new_cycle, points)
 
             delta = new_length - current_length
-            if delta < 0 or random.random() < math.exp(-delta / T):  # akcepracja lepszego rozwiązania lub gorszego (zależnie od T)
+
+            # akceptacja lepszego rozwiązania lub gorszego, z prawdopodobieństwem zależnym od T
+            if delta < 0 or random.random() < math.exp(-delta / T):
                 current_cycle = new_cycle
                 current_length = new_length
 
